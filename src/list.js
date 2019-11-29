@@ -13,7 +13,7 @@ const appendList = (list, value) => {
 };
 const removeFromList = (list, node) => {
   let x = list;
-  let p = null; // 这里将 p 初始化为 null，这句话没有特殊目的。当然你将 p 初始化为 node 也行，但没有区别，因为 18 行一定会对 p 重新赋值。
+  let p = node; // 课堂里将 p 初始化为 null，这里改为 node
   while (x !== node && x !== null) { // 课堂里忘了对 null 进行处理，如果 node 不在 list 中，x 就可能为 null
     p = x;
     x = x.next;
@@ -22,6 +22,7 @@ const removeFromList = (list, node) => {
     return false
   }else{
     p.next = x.next;
+    return p // 如果删除的是第一个节点，那么就要把新 list 的头节点 p 返回给外面
   }
 };
 
