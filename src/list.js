@@ -20,9 +20,12 @@ const removeFromList = (list, node) => {
   }
   if(x === null){ // 若 x 为 null，则不需要删除，直接 return， false 表示无法删除不在list里的节点
     return false
+  }else if(x === p){ // 这说明要删除的节点是第一个节点
+    p = x.next
+    return p // 如果删除的是第一个节点，那么就要把新 list 的头节点 p 返回给外面
   }else{
     p.next = x.next;
-    return p // 如果删除的是第一个节点，那么就要把新 list 的头节点 p 返回给外面
+    return p // 如果删除的不是第一个节点，返不返回 p 都可以
   }
 };
 
