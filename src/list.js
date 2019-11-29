@@ -18,7 +18,7 @@ const removeFromList = (list, node) => {
     p = x;
     x = x.next;
   }
-  if(x === null){ // 若 x 为 null，则不需要删除，直接 reuturn， false 表示无法删除
+  if(x === null){ // 若 x 为 null，则不需要删除，直接 return， false 表示无法删除不在list里的节点
     return false
   }else{
     p.next = x.next;
