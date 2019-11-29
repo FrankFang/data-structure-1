@@ -14,11 +14,15 @@ const appendList = (list, value) => {
 const removeFromList = (list, node) => {
   let x = list;
   let p = null;
-  while (x !== node) {
+  while (x !== node && x !== null) { // 课堂里忘了对 null 进行处理，如果 node 不在 list 中，x 就可能为 null
     p = x;
     x = x.next;
   }
-  p.next = x.next;
+  if(x === null){ // 若 x 为 null，则不需要删除，直接 reuturn， false 表示无法删除
+    return false
+  }else{
+    p.next = x.next;
+  }
 };
 
 const createNode = value => {
